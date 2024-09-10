@@ -5,4 +5,8 @@ clean:
 	rm %DESTDIR%/resources/libraries/%DistanceFunctions%
 
 %DESTDIR%/resources/libraries/%DistanceFunctions%: DistanceFunctions.c
+ifeq ($(shell uname), Darwin)
 	%CC% -shared %CCSHARED% %CCFLAGS% DistanceFunctions.c -o %DESTDIR%/resources/libraries/%DistanceFunctions% -framework Accelerate
+else
+	%CC% -shared %CCSHARED% %CCFLAGS% DistanceFunctions.c -o %DESTDIR%/resources/libraries/%DistanceFunctions%
+endif

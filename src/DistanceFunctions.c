@@ -4,6 +4,9 @@
 #include <math.h>
 
 #if defined(__APPLE__) && defined(__MACH__)
+//=====================================================================
+// ACCELERATE
+//=====================================================================
 #include <Accelerate/Accelerate.h>
 
 //---------------------------------------------------------------------
@@ -69,22 +72,74 @@ double VectorNorm(const double *vector, size_t count, const char *type) {
 
     return result;
 }
-#else
 
-double SquaredEuclideanDistance(const double *vectorA, const double *vectorB, size_t count) {
-    printf("This program requires macOS and the Accelerate framework.\n");
-    return 0;
+#else
+//=====================================================================
+// GENERIC
+//=====================================================================
+double SquaredEuclideanDistance(double *a, double *b, int n) {
+    double sum = 0.0;
+    for (int i = 0; i < n; i++) {
+        double diff = a[i] - b[i];
+        sum += diff * diff;
+    }
+    return sum;
 }
-double EuclideanDistance(const double *vectorA, const double *vectorB, size_t count) {
-    printf("This program requires macOS and the Accelerate framework.\n");
-    return 0;
+
+//---------------------------------------------------------------------
+double EuclideanDistance(double *a, double *b, int n) {
+    double squaredDistance = SquaredEuclideanDistance(a, b, n);
+    return sqrt(squaredDistance);
 }
-double DotProduct(const double *vectorA, const double *vectorB, size_t count) {
-    printf("This program requires macOS and the Accelerate framework.\n");
-    return 0;
+
+//---------------------------------------------------------------------
+double DotProduct(double *a, double *b, int n) {
+    double dot_product = 0.0;
+    for (int i = 0; i < n; i++) {
+        dot_product += a[i] * b[i];
+    }
+    return dot_product;
 }
-double CosineDistance(const double *vectorA, const double *vectorB, size_t count) {
-    printf("This program requires macOS and the Accelerate framework.\n");
-    return 0;
+
+//---------------------------------------------------------------------
+double CosineDistance(double *a, double *b, int n) {
+    double dot_product = 0.0, norm_a = 0.0, norm_b = 0.0;
+    for (int i = 0; i < n; i++) {
+        dot_product += a[i] * b[i];
+        norm_a += a[i] * a[i];
+        norm_b += b[i] * b[i];
+    }
+    if (norm_a == 0.0 || norm_b == 0.0) {
+        return 1.0;
+    }
+    return 1.0 - (dot_product / (sqrt(norm_a) * sqrt(norm_b)));
 }
+
+//---------------------------------------------------------------------
+double VectorNorm(double *vec, int length, const char *type) {
+    double norm = 0.0;
+
+    if (strcmp(type, "1") == 0) {
+        for (int i = 0; i < length; i++) {
+            norm += fabs(vec[i]);
+        }
+    } else if (strcmp(type, "infinity") == 0 || strcmp(type, "max") == 0) {
+        for (int i = 0; i < length; i++) {
+            if (fabs(vec[i]) > norm) {
+                norm = fabs(vec[i]);
+            }
+        }
+    } else if (strcmp(type, "2") == 0 || strcmp(type, "euclidean") == 0) {
+        for (int i = 0; i < length; i++) {
+            norm += vec[i] * vec[i];
+        }
+        norm = sqrt(norm);
+    } else {
+        fprintf(stderr, "Unknown norm type: %s\n", type);
+        exit(EXIT_FAILURE);
+    }
+
+    return norm;
+}
+
 #endif
