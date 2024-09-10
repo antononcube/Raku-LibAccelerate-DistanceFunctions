@@ -19,9 +19,9 @@ dies-ok { euclidean-distance([1,1,0,2], [0,1,2]) }, 'Euclidean distance over non
 ## 4
 # This does not work because of the idiotic Raku ideas about Seq and slurpy arguments.
 #is norm([1,2,3] Z- [2,4,6], p => 1), 6, '1-Norm over array';
-is norm(([1,2,3] Z- [2,4,6]), p => "1"), 6, '1-Norm over array';
+is norm(([1,2,3] Z- [2,4,6]).Array, p => "1"), 6, '1-Norm over array';
 
 ## 5
-is norm(v => ([1,2,3] Z- [2,4,6]), p => 'max'), 3, 'Max-norm over array';
+is norm(v => ([1,2,3] Z- [2,4,6]).Array, p => 'max'), 3, 'Max-norm over array';
 
 done-testing;
