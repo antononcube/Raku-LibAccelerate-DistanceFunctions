@@ -1,2 +1,3 @@
-# Raku-LibAccelerate-DistanceFunctions
-Distance functions implemented using Apple's Accelerate library.
+# LibAccelerate::DistanceFunctions
+
+Raku package with distance functions implemented using Apple's Accelerate library.

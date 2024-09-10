@@ -1,0 +1,8 @@
+name = %DistanceFunctions%
+
+all: %DESTDIR%/resources/libraries/%DistanceFunctions%
+clean:
+	rm %DESTDIR%/resources/libraries/%DistanceFunctions%
+
+%DESTDIR%/resources/libraries/%DistanceFunctions%: DistanceFunctions.c
+	%CC% -shared %CCSHARED% %CCFLAGS% DistanceFunctions.c -o %DESTDIR%/resources/libraries/%DistanceFunctions% -framework Accelerate

@@ -1,0 +1,27 @@
+use v6.d;
+use Test;
+
+use lib <. lib>;
+
+use LibAccelerate::DistanceFunctions;
+
+plan *;
+
+## 1
+is cosine-distance([1,1,0], [0,1,2]), 1 - 1 / sqrt(10), 'Cosine distance over arrays';
+
+## 2
+is euclidean-distance([1,1,0], [0,1,2]), sqrt(5), 'Euclidean distance over arrays';
+
+## 3
+dies-ok { euclidean-distance([1,1,0,2], [0,1,2]) }, 'Euclidean distance over non-same length arrays';
+
+## 4
+# This does not work because of the idiotic Raku ideas about Seq and slurpy arguments.
+#is norm([1,2,3] Z- [2,4,6], p => 1), 6, '1-Norm over array';
+is norm(([1,2,3] Z- [2,4,6]), p => "1"), 6, '1-Norm over array';
+
+## 5
+is norm(v => ([1,2,3] Z- [2,4,6]), p => 'max'), 3, 'Max-norm over array';
+
+done-testing;
