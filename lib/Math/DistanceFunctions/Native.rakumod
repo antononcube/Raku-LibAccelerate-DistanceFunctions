@@ -1,5 +1,12 @@
 use v6.d;
 
+
+sub EXPORT {
+    use Math::DistanceFunctions::Edit;
+    Map.new:
+            '&edit-distance' => &Math::DistanceFunctions::Edit::edit-distance,
+}
+
 unit module Math::DistanceFunctions::Native;
 
 use NativeCall;

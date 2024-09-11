@@ -1,0 +1,13 @@
+use v6.d;
+use Test;
+
+use lib <. lib>;
+
+use Math::DistanceFunctions::Native;
+
+plan *;
+
+## 1
+is edit-distance('racoon', 'raccoon'), 1, 'Edit distance is available';
+
+done-testing;
