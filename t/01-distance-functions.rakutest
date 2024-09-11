@@ -3,7 +3,7 @@ use Test;
 
 use lib <. lib>;
 
-use LibAccelerate::DistanceFunctions;
+use Math::DistanceFunctions::Native;
 
 plan *;
 

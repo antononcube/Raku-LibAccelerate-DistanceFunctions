@@ -2,7 +2,7 @@
 use v6.d;
 
 #use lib <. lib>;
-use LibAccelerate::DistanceFunctions;
+use Math::DistanceFunctions::Native;
 use NativeCall;
 use NativeHelpers::Array;
 use JSON::Fast;

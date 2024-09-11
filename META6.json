@@ -1,5 +1,5 @@
 {
-  "name": "LibAccelerate::DistanceFunctions",
+  "name": "Math::DistanceFunctions::Native",
   "description": "Raku package of distance functions based on C code via NativeCall using Apple's Accelerate library.",
   "version": "0.1.0",
   "perl": "6.d",
@@ -13,18 +13,18 @@
   "build-depends": [
     "LibraryMake",
     "Distribution::Builder::MakeFromJSON",
-    "LibAccelerate::DistanceFunctions::CustomBuilder"
+    "Math::DistanceFunctions::Native::CustomBuilder"
   ],
   "test-depends": [],
   "provides": {
-    "LibAccelerate::DistanceFunctions": "lib/LibAccelerate/DistanceFunctions.rakumod",
-    "LibAccelerate::DistanceFunctions::CustomBuilder": "lib/LibAccelerate/DistanceFunctions/CustomBuilder.rakumod"
+    "Math::DistanceFunctions::Native": "lib/Math/DistanceFunctions/Native.rakumod",
+    "Math::DistanceFunctions::Native::CustomBuilder": "lib/Math/DistanceFunctions/Native/CustomBuilder.rakumod"
   },
   "resources": [
     "libraries/DistanceFunctions"
   ],
   "license": "Artistic-2.0",
   "api": "1",
-  "source-url": "https://github.com/antononcube/Raku-LibAccelerate-DistanceFunctions.git",
-  "builder": "LibAccelerate::DistanceFunctions::CustomBuilder"
+  "source-url": "https://github.com/antononcube/Raku-Math-DistanceFunctions-Native.git",
+  "builder": "Math::DistanceFunctions::Native::CustomBuilder"
 }

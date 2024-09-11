@@ -1,4 +1,4 @@
-# LibAccelerate::DistanceFunctions
+# Math::DistanceFunctions::Native
 
 [![Actions Status](https://github.com/antononcube/Raku-LibAccelerate-DistanceFunctions/actions/workflows/linux.yml/badge.svg)](https://github.com/antononcube/Raku-LibAccelerate-DistanceFunctions/actions)
 [![Actions Status](https://github.com/antononcube/Raku-LibAccelerate-DistanceFunctions/actions/workflows/macos.yml/badge.svg)](https://github.com/antononcube/Raku-LibAccelerate-DistanceFunctions/actions)

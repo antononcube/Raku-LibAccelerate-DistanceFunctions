@@ -1,7 +1,8 @@
 use LibraryMake;
 use Distribution::Builder::MakeFromJSON;
 
-class LibAccelerate::DistanceFunctions::CustomBuilder is Distribution::Builder::MakeFromJSON {
+class Math::DistanceFunctions::Native::CustomBuilder
+        is Distribution::Builder::MakeFromJSON {
     method build(IO() $work-dir = $*CWD) {
         my $workdir = ~$work-dir;
         my $srcdir = "$workdir/src";

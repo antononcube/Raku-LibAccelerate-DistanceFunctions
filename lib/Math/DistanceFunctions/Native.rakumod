@@ -1,6 +1,6 @@
 use v6.d;
 
-unit module LibAccelerate::DistanceFunctions;
+unit module Math::DistanceFunctions::Native;
 
 use NativeCall;
 use NativeHelpers::Array;
