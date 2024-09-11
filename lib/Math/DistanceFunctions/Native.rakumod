@@ -73,11 +73,11 @@ multi sub dot-product($v1, $v2 --> Numeric:D) {
 #-----------------------------------------------------------
 our proto sub norm(| --> Numeric:D) is export {*}
 
-multi sub norm(:v(:$vector)!, Str:D :p(:$type) --> Numeric:D) {
+multi sub norm(:v(:$vector)!, Str:D :p(:$type) = '2' --> Numeric:D) {
     return norm($vector, :$type);
 }
 
-multi sub norm($v, Str:D :p(:$type) --> Numeric:D) {
+multi sub norm($v, Str:D :p(:$type) = '2' --> Numeric:D) {
 
     if !(($v ~~ Positional:D) && ($v.all ~~ Numeric:D)) {
         die "The first argument is expected to be a numeric array.";
