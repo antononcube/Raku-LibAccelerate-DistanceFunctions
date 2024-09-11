@@ -32,10 +32,6 @@ my $tend = now;
 say "Total time of computing {@vecs.elems} distances: {round($tend - $start, 10 ** -6)} s";
 say "Average time of a single distance computation: {($tend - $start) / @vecs.elems} s";
 ```
-```
-# Total time of computing 1000 distances: 0.63326 s
-# Average time of a single distance computation: 0.0006332598499999999 s
-```
 
 ### `CArray` vectors
 
@@ -52,10 +48,6 @@ $tend = now;
 say "Total time of computing {@cvecs.elems} distances: {round($tend - $start, 10 ** -6)} s";
 say "Average time of a single distance computation: {($tend - $start) / @cvecs.elems} s";
 ```
-```
-# Total time of computing 1000 distances: 0.002994 s
-# Average time of a single distance computation: 2.994124e-06 s
-```
 
 I.e., we get ≈ 200 times speed-up using `CArray` vectors and the functions of this package. 
 
@@ -67,7 +59,4 @@ Here is an example usage:
 
 ```perl6
 edit-distance('racoon', 'raccoon')
-```
-```
-# 1
 ```
