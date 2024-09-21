@@ -22,8 +22,7 @@
     "Math::DistanceFunctions::Native::CustomBuilder": "lib/Math/DistanceFunctions/Native/CustomBuilder.rakumod"
   },
   "resources": [
-    "libraries/DistanceFunctions",
-    "libraries/libDistanceFunctions.dylib"
+    "libraries/DistanceFunctions"
   ],
   "license": "Artistic-2.0",
   "tags": [
