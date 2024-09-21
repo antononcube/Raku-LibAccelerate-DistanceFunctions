@@ -1,7 +1,7 @@
 {
   "name": "Math::DistanceFunctions::Native",
   "description": "Raku package for distance functions based on C implementations.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "perl": "6.d",
   "authors": [
     "Anton Antonov"
@@ -22,7 +22,8 @@
     "Math::DistanceFunctions::Native::CustomBuilder": "lib/Math/DistanceFunctions/Native/CustomBuilder.rakumod"
   },
   "resources": [
-    "libraries/DistanceFunctions"
+    "libraries/DistanceFunctions",
+    "libraries/libDistanceFunctions.dylib"
   ],
   "license": "Artistic-2.0",
   "tags": [
